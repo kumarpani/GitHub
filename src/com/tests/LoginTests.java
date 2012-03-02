@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 	
-	@Test (description ="sads", groups = {"Smoke"})
+	@Test (groups = {"Smoke"})
 	public void verifyValidLogin()
 	{
 		landingPage.navigateToLoginPage();

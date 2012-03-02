@@ -1,4 +1,4 @@
-<project name="GitHub" default="runTests" basedir=".">
+<project name="GitHub" default="runSmokeTests" basedir=".">
 	<description>
         simple example build file
     </description>
@@ -46,11 +46,21 @@
 	</target>
 
 	<taskdef name="testng" classpathref="classpath" classname="org.testng.TestNGAntTask" />
-	<target name="runTests" depends = "compile">
+	
+	<target name="runSmokeTests" depends = "compile">
 	    <echo message=" Tests Started !!"/>
 		<testng classpathref="classpath"  outputdir="${testresults.dir}" groups="Smoke">
 			<classfileset dir="${build.dir}" includes="com/tests/*.class"/>
 		</testng>
 	    <echo message=" Tests completed !!"/>
 	</target>
+	
+	<target name="runRegressionTests" depends = "compile">
+	    <echo message=" Tests Started !!"/>
+		<testng classpathref="classpath"  outputdir="${testresults.dir}" groups="Regression">
+			<classfileset dir="${build.dir}" includes="com/tests/*.class"/>
+		</testng>
+	    <echo message=" Tests completed !!"/>
+	</target>
+
 </project>

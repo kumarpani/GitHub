@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTests extends BaseTest {
 	
-	@Test
+	@Test (groups={"Regression"})
 	public void changeProfileName()
 	{
 		landingPage.navigateToLoginPage();
@@ -22,7 +22,7 @@ public class ProfileTests extends BaseTest {
 		Assert.assertEquals(driver.findElementByXPath("//dl[@data-name='profile_name']//input").getAttribute("value"), "Pani Kumar E");		
 	}
 	
-	@Test
+	@Test (groups={"Regression"})
 	public void verifyChangeLocation()
 	{
 		landingPage.navigateToLoginPage();
