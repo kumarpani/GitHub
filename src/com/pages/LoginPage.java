@@ -1,20 +1,26 @@
 package com.pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
 
 	FirefoxDriver driver;
-	public LoginPage(FirefoxDriver driver) {
-		this.driver=driver;
-	}
+		
+	@FindBy(id="login_field")		private WebElement loginField;
+	@FindBy(id="password")			private WebElement passwordField;
+	@FindBy(name="commit")			private WebElement submit;
+	@FindBy(className="error_box")	private WebElement errorField;
+	
+	
 	public void performLogin(String userId, String password) {
-		driver.findElementById("login_field").sendKeys(userId);
-		driver.findElementById("password").sendKeys(password);
-		driver.findElementByName("commit").click();
+		loginField.sendKeys(userId);
+		passwordField.sendKeys(password);
+		submit.click();
 	}
 	
 	public String getErrorMessage() {
-		return driver.findElementByClassName("error_box").getText();
+		return errorField.getText();
 	}
 }

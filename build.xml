@@ -1,4 +1,4 @@
-<project name="GitHub" default="runSmokeTests" basedir=".">
+<project name="GitHub" default="runRegressionTests" basedir=".">
 	<description>
         simple example build file
     </description>
